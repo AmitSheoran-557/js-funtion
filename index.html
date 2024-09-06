@@ -20,7 +20,7 @@
 </head>
 
 <body class="bg-red-50">
-    <section class="flex justify-center items-center mt-5">
+    <section class="flex  mt-5">
         <div class="container flex justify-center items-center space-x-4">
             <div class="js_card p-8 shadow-md rounded-3xl mt-5">
                 <img class="max-w-[344px] rounded-xl" src="./assets/image/Rectangle 64.png" alt="handimg">
@@ -53,10 +53,10 @@
                 <div class="flex gap-5 buttons justify-center text-center  items-center">
                     <button
                         class="w-[179px] h-[50px] flex items-center justify-center rounded-full leading-6 border-transparent border-2 hover:bg-white hover:text-black hover:border-black hover:border-2 transition-all duration-300 bg-black text-white font-bold text-[16px] px-7 py-[14px]"
-                        id="accept_btn">Accept</button>
+                        id="accept-btn">Accept</button>
                     <button
                         class="w-[179px] h-[50px] flex items-center justify-center rounded-full leading-6 border-transparent border-2 hover:bg-white hover:text-black hover:border-black hover:border-2 transition-all duration-300 bg-black text-white font-bold text-[16px] px-7 py-[14px]"
-                        id="deny_btn">Deny</button>
+                        id="deny-btn">Deny</button>
                     <button id="deletebtn" class="deletebtn"><svg xmlns="http://www.w3.org/2000/svg" width="30"
                             height="30" viewBox="0 0 64 64">
                             <path fill="red"
@@ -68,7 +68,7 @@
             </div>
         </div>
     </section>
-   
+
     <script>
         const buttons = document.querySelectorAll('.btn');
         const loremTexts = document.querySelectorAll('.loremText');
@@ -84,21 +84,23 @@
         });
 
         const cookiePopup = document.getElementById('cookies-box');
-        const acceptCookiesButton = document.getElementById('accept_btn');
-        const declineCookiesButton = document.getElementById('deny_btn');
-        const deletebtn = document.getElementById('deletebtn')
+        const acceptCookiesButton = document.getElementById('accept-btn');
+        const declineCookiesButton = document.getElementById('deny-btn');
 
         acceptCookiesButton.addEventListener('click', () => {
-            cookiePopup.style.display = 'none';
+            localStorage.setItem('pop', 'accepted');
+            cookiePopup.classList.add('hidden');
 
         });
         declineCookiesButton.addEventListener('click', () => {
-            cookiePopup.style.display = 'none';
+            localStorage.setItem('pop', 'rejected');
+            cookiePopup.classList.add('hidden');
         });
-        deletebtn.addEventListener('click', () => {
-            cookiePopup.style.display = 'none';
-            alert = "cookies declined"
-        });
+
+        if (localStorage.getItem('pop')) {
+            cookiePopup.classList.add('hidden');
+        }
+
     </script>
 </body>
 
