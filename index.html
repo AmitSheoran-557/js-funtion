@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-red-50">
+    <section class="flex justify-center items-center mt-5">
+        <div class="container flex justify-center items-center space-x-4">
+            <div class="js_card p-8 shadow-md rounded-3xl mt-5">
+                <img class="max-w-[344px] rounded-xl" src="./assets/image/Rectangle 64.png" alt="handimg">
+                <p class="text-2xl font-medium pt-4">Lorem ipsum dolor sit amet.</p>
+                <div class="loremText hidden">
+                    <div class="flex pt-4">
+                        <p>Lorem ipsum dolor sit amet,</p>
+                    </div>
+                    <div class="flex pt-4">
+                        <p>Lorem ipsum dolor sit amet,</p>
+                    </div>
+                    <div class="flex pt-4 pb-4">
+                        <p>Lorem ipsum dolor sit amet,</p>
+                    </div>
+                </div>
+                <button class="btn px-4 py-3 border  rounded-full bg-blue-700 text-white">Learn more</button>
+            </div>
+        </div>
+        <div class="cookies-box py-12 px-[150px] " id="cookies-box">
+            <div class="flex">
+                <div class="me-24">
+                    <h1 class="max-w-[662px] text-[48px] font-normal font-montserrat ">This site uses cookies</h1>
+                    <p class="font-normal text-[16px] max-w-[662px]">This site uses cookies small text files that are
+                        placed on your machine to help the site provide
+                        a better user experience. In general, cookies are used to retain user preferences, store
+                        information for things like shopping carts, and provide anonymized tracking data to third party
+                        applications like Google Analytics. <span class="text-[16px] font-semibold"> Learn more</span>
+                    </p>
+                </div>
+                <div class="flex gap-5 buttons justify-center text-center  items-center">
+                    <button
+                        class="w-[179px] h-[50px] flex items-center justify-center rounded-full leading-6 border-transparent border-2 hover:bg-white hover:text-black hover:border-black hover:border-2 transition-all duration-300 bg-black text-white font-bold text-[16px] px-7 py-[14px]"
+                        id="accept_btn">Accept</button>
+                    <button
+                        class="w-[179px] h-[50px] flex items-center justify-center rounded-full leading-6 border-transparent border-2 hover:bg-white hover:text-black hover:border-black hover:border-2 transition-all duration-300 bg-black text-white font-bold text-[16px] px-7 py-[14px]"
+                        id="deny_btn">Deny</button>
+                    <button id="deletebtn" class="deletebtn"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                            height="30" viewBox="0 0 64 64">
+                            <path fill="red"
+                                d="M62 52c0 5.5-4.5 10-10 10H12C6.5 62 2 57.5 2 52V12C2 6.5 6.5 2 12 2h40c5.5 0 10 4.5 10 10z" />
+                            <path fill="#fff"
+                                d="M50 21.2L42.8 14L32 24.8L21.2 14L14 21.2L24.8 32L14 42.8l7.2 7.2L32 39.2L42.8 50l7.2-7.2L39.2 32z" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <script>
+        const buttons = document.querySelectorAll('.btn');
+        const loremTexts = document.querySelectorAll('.loremText');
+
+        buttons.forEach((btn, index) => {
+            btn.addEventListener('mouseover', () => {
+                loremTexts[index].classList.remove('hidden');
+            });
+
+            btn.addEventListener('mouseout', () => {
+                loremTexts[index].classList.add('hidden');
+            });
+        });
+
+        const cookiePopup = document.getElementById('cookies-box');
+        const acceptCookiesButton = document.getElementById('accept_btn');
+        const declineCookiesButton = document.getElementById('deny_btn');
+        const deletebtn = document.getElementById('deletebtn')
+
+        acceptCookiesButton.addEventListener('click', () => {
+            cookiePopup.style.display = 'none';
+
+        });
+        declineCookiesButton.addEventListener('click', () => {
+            cookiePopup.style.display = 'none';
+        });
+        deletebtn.addEventListener('click', () => {
+            cookiePopup.style.display = 'none';
+            alert = "cookies declined"
+        });
+    </script>
+</body>
+
+</html>
